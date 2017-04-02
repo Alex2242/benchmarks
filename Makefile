@@ -42,10 +42,10 @@ usage:
 	@echo "Feel free to send me all your results ;)"
 
 cuda_gemm_fp64:
-	${NVCC} -m64 $(CUDA_ARCH) -O3  -o ./bin/cuda_gemm_fp64.x ./src/zgemm.cu -I${CUDA_INCLUDE} $(LIBS_CUDA) $(LIB_STD)
+	${NVCC} -m64 $(CUDA_ARCH) -O3  -o ./bin/cuda_gemm_fp64.x ./src/zgemm.cu -I${CUDA_INCLUDE} $(CUDA_LIB) $(LIB_STD)
 
 cuda_gemm_fp32:
-	${NVCC} -m64 $(CUDA_ARCH) -O3 -o ./bin/cuda_gemm_fp32.x ./src/cgemm.cu -I${CUDA_INCLUDE} $(LIBS_CUDA) $(LIB_STD)
+	${NVCC} -m64 $(CUDA_ARCH) -O3 -o ./bin/cuda_gemm_fp32.x ./src/cgemm.cu -I${CUDA_INCLUDE} $(CUDA_LIB) $(LIB_STD)
 
 mkl_gemm_fp64_monothread:
 	${CC} -fopenmp $(CFLAGS) -o ./bin/mkl_gemm_fp64_monothread.x ./src/zgemm_MKL2.c -I$(MKL_INC) -L${MKL_LIB}  $(MKL_SEQ) $(LIB_STD)
