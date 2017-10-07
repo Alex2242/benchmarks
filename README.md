@@ -10,7 +10,7 @@ If you get the error : `unsupported GNU version! gcc versions later than 5 are n
 
 ## Architectures 
 
-Check $url for the best architecture to use with your hardware. 
+Check [CUDA GPUs](https://developer.nvidia.com/cuda-gpus) for the best architecture to use with your hardware. 
 `compute_20,sm_20` is used by default for wider compatibility, remplace it in CMakeLists.txt with yours.
 
 
