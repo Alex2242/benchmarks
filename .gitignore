@@ -1,9 +1,13 @@
+# results files
+*.dat
 
+# cmake files
 CMakeFiles
 CMakeCache.txt
 Makefile
-bin/*
 *.cmake
+
+# Vim tmp file
 *.swp
 
 # Object files
@@ -29,6 +33,7 @@ bin/*
 *.dylib
 
 # Executables
+bin/*
 *.exe
 *.out
 *.app
