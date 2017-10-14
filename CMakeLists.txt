@@ -4,7 +4,7 @@ project(scientific_benchmark)
 
 # Modify path for gcc 5 here
 set(CUDA_HOST_COMPILER /usr/bin/gcc-5)
-find_package(CUDA QUIET REQUIRED)
+find_package(CUDA)
 find_package(SDL2)
 find_package(OpenGL)
 
