@@ -1,15 +1,36 @@
-#include <SDL2/SDL.h>
 #include <iostream>
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <GL/glut.h>
 
 #include "display.hpp"
 #include "nbody.hpp"
 
+
+
+int main(int argc, char **argv) {
+	if (argc != 3) {
+		std::cout << "Usage : <Number of bodies> <dt> \n" ;
+		return 0;
+	}
+
+	float dt ;
+	sscanf(argv[2],"%f",&dt);
+    int N = std::stoi(argv[1]);
+    bool res = 1;
+
+  	Nbody *nbody = new Nbody(N,dt);
+    Display *disp = new Display();
+
+    while (res) {
+		nbody->compute3D();
+		res = disp->drawBodies3D(nbody->getPositions());
+	}
+
+  	return 0;
+}
+
+
+/*
 void drawPoints(float *x, float *y) {
     glBegin(GL_POINTS);
-            // glVertex2f(-0.7 * cos(t) - 0.7*sin(t), - 0.7*sin(t) + 0.7*cos(t)  );
             glVertex2f(x[0],y[0]);
             glVertex2f(x[1],y[1]);
             glVertex2f(x[2],y[2]);
@@ -17,28 +38,8 @@ void drawPoints(float *x, float *y) {
     glFlush();
 }
 
-int main(int argc, char **argv) {
-	if (argc != 3) {
-		std::cout << "Usage : <Number of bodies> <dt> \n" ;
-		return 0;
-	}
-	float dt ;
-	sscanf(argv[2],"%f",&dt);
-	std::cout << "dt : " <<  dt << "\n";
-    int N = std::stoi(argv[1]);
-    bool res = 1;
-  	Nbody n(N,dt);
-    Display *d = new Display();
-    double **pos;
 
-    while (res) {
-		pos = n.compute();
-		res = d->drawBodies(N, pos[0], pos[1]);
-		usleep(1000);
-	}
-  	return 0;
-}
-
+/*
 int azemain(int argc, char **argv) {
     // Notre fenêtre
     SDL_Window* window(0);
@@ -112,3 +113,5 @@ int azemain(int argc, char **argv) {
     return 0;
 
 }
+
+*/
