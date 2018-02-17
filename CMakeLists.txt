@@ -23,11 +23,11 @@ if (CUDA_FOUND)
 	SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS}")
 
 
-	cuda_add_executable(cuda_gemm_fp32 src/cgemm.cu src/gene_bruit_rayleigh_scalaire.c)
+	cuda_add_executable(cuda_gemm_fp32 src/cgemm.cu src/generateRayleighScalarNoise.c)
 	target_link_libraries (cuda_gemm_fp32 ${CUDA_CUBLAS_LIBRARIES} )
 	install(TARGETS cuda_gemm_fp32 DESTINATION bin)
 
-	cuda_add_executable(cuda_gemm_fp64 src/zgemm.cu src/gene_bruit_rayleigh_scalaire.c)
+	cuda_add_executable(cuda_gemm_fp64 src/zgemm.cu src/generateRayleighScalarNoise.c)
 	target_link_libraries (cuda_gemm_fp64 ${CUDA_CUBLAS_LIBRARIES} )
 	install(TARGETS cuda_gemm_fp64 DESTINATION bin)
 
