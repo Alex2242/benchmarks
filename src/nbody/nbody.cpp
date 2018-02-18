@@ -49,8 +49,8 @@ void Nbody::compute2D() {
 	    fx = 0; fy = 0;
 	    for (int oB = 0; oB < nBodies; oB++){ // oB = otherBody
 			if (oB != tB){
-		     	fx += G * pow(m,2) * (x[oB] - x[tB]) / (pow(abs(x[oB] - x[tB]), 3) + 0.01 );
-		    	fy += G * pow(m,2) * (y[oB] - y[tB]) / (pow(abs(y[oB] - y[tB]), 3) + 0.01 );
+		     	fx += G * pow(m,2) * (x[oB] - x[tB]) / (pow(abs(x[oB] - x[tB]), 2) + 0.01 );
+		    	fy += G * pow(m,2) * (y[oB] - y[tB]) / (pow(abs(y[oB] - y[tB]), 2) + 0.01 );
 			}
 		}
 
@@ -71,7 +71,7 @@ void Nbody::compute3D() {
 			if (oB != tB){
 		     	fx += G * pow(m,2) * (x[oB] - x[tB]) / (pow(abs(x[oB] - x[tB]), 3) + 0.01 );
 		    	fy += G * pow(m,2) * (y[oB] - y[tB]) / (pow(abs(y[oB] - y[tB]), 3) + 0.01 );
-			 	fz += G * pow(m,2) * (z[oB] - z[tB]) / (pow(abs(z[oB] - z[tB]), 3) + 0.01 );
+				fz += G * pow(m,2) * (z[oB] - z[tB]) / (pow(abs(z[oB] - z[tB]), 3) + 0.01 );
 			}
 		}
 	    vx[tB] += fx * dt / m;
